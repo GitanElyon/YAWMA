@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2.0.0-rc",
-  "productName": "yawma",
+  "productName": "YAWMA",
   "version": "0.1.0",
   "identifier": "com.yawma.app",
   "build": {
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "yawma",
+        "title": "YAWMA",
         "width": 800,
         "height": 600,
         "fullscreen": false,
