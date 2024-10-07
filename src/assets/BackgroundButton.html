@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="BackgroundStyle.css" />
+    <style>
+        #gradient-canvas {
+            --gradient-color-1: #d400ff;
+            --gradient-color-2: #cc00ff;
+            --gradient-color-3: #9900ff;
+            --gradient-color-4: #7700ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="second-image-container"></div>
+    <div id="text-container"><br></div>
+
+    <canvas id="gradient-canvas"></canvas>
+
+    <script text="text/javascript" src="BackgoundLogic.js"></script>
+
+    <!-- New script tag to modify the speed variable -->
+    <script text="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof gradient !== 'undefined' && gradient.uniforms && gradient.uniforms.u_global) {
+                gradient.uniforms.u_global.value.noiseSpeed.value = 13e-6; 
+            }
+        });
+    </script>
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,753 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+        Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    /*overflow: hidden;*/
+}
+
+html,
+body {
+    overscroll-behavior: none;
+}
+
+
+
+/* Title Bar Stuff */
+
+.title-bar img {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-left: 4px;
+
+}
+
+.title-bar {
+    -webkit-app-region: drag;
+    background-color: #3333334a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-bar-button {
+    filter: saturate(230%);
+    -webkit-app-region: no-drag;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.title-bar-button:hover {
+    background-color: #333333;
+}
+
+.title-bar .title-image {
+    width: 100px;
+    height: 15px;
+    margin-left: 10px;
+    margin-top: 3px;
+    opacity: 0.75;
+
+}
+
+/* Catagory Labels */
+
+.context-bar-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+.context-labels {
+
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* Ensures it takes full width */
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+.name,
+.priority,
+.status,
+.started,
+.duration {
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(82, 82, 82);
+
+    /
+}
+
+/* Customize the distance for each category individually */
+.name {
+    margin-right: 13%;
+    /* Increased right margin for 'Name' */
+}
+
+
+
+/* Search Bar Stuff */
+
+#search-bar {
+    width: 94%;
+    height: 50px;
+    background-color: #3333334a;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin-top: 90px;
+    margin-left: 3%;
+    pointer-events: none;
+
+
+}
+
+.search-boxes-class {
+    display: flex;
+
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    /*border: 2px solid rgb(0, 0, 0);/* dont even uncomment this */
+}
+
+
+
+.search-name,
+.search-started,
+.search-duration,
+.dropdown-priority,
+.dropdown-status {
+    display: inline-block;
+    font-size: 20px;
+    /*padding: 5px;*/
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+
+
+.search-name {
+    width: calc(31vw - 30px);
+
+}
+
+.dropdown-status {
+    margin-left: calc(19vw - 100px);
+}
+
+.search-started {
+    margin-left: calc(20vw - 150px);
+    width: 105px;
+}
+
+.search-duration {
+    margin-left: calc(20vw - 130px);
+    width: 80px;
+}
+
+/* Project List Stuff */
+
+#project-list {
+    width: 94%;
+    height: calc(100vh - 285px);
+    background-color: #3333334a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 3%;
+    overflow-y: auto;
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+
+
+}
+
+#project-list::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+    margin-right: 10px;
+}
+
+#project-list::-webkit-scrollbar-track {
+    background: rgba(79, 79, 79, 0.3);
+    /* Gray and a little transparent */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+#project-list::-webkit-scrollbar-thumb {
+    background: rgba(86, 86, 86, 0.395);
+    /* Gray and a little transparent */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+#project-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(86, 86, 86, 0.7);
+    /* Gray and a little transparent */
+}
+
+.project-item {
+
+    border-bottom: 2px solid #ffffff2b;
+    /* Add a solid bottom border */
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    font-weight: 500;
+    transform: all 1s ease;
+
+}
+
+
+.project-item p {
+    font-size: 1.1em;
+    color: #ffffff;
+    display: inline-block;
+
+
+}
+
+.project-item {
+    position: relative;
+    /* Ensure the item is positioned relative for the overlay */
+}
+
+.project-item:hover {
+
+    background-color: #c300ff28;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.project-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /*gap: 0; /* Adjust the gap between columns as needed */
+    user-select: none;
+}
+
+.project-item :nth-child(1) {
+    grid-column: 1;
+    width: calc(31.4vw - 25px);
+    padding-left: 10px;
+}
+
+.project-item :nth-child(2) {
+    grid-column: 2;
+    width: calc(20vw - 24px);
+}
+
+.project-item :nth-child(3) {
+    grid-column: 3;
+    width: calc(20vw - 28px);
+}
+
+.project-item :nth-child(4) {
+    grid-column: 4;
+    width: calc(19vw - 10px);
+}
+
+.project-item :nth-child(5) {
+    grid-column: 5;
+}
+
+
+
+
+/* CREATE BUTTON STUFF */
+
+#create-button {
+    width: 340px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    text-align: center;
+    /* Adds a visible border */
+}
+
+
+
+#create-button-background {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+    pointer-events: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+#create-button-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    user-select: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.custom-dropdown {
+    margin-top: -8px;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    width: 200px;
+    padding-top: 0px;
+}
+
+#priority-dropdown {
+    width: 80%;
+
+}
+
+#status-dropdown {
+
+    width: 100%;
+    margin-left: calc(19.5vw - 125px);
+}
+
+.dropdown-button {
+    background-color: #a4a4a420;
+    /* Dark background */
+    color: #fff;
+    /* Light text */
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 1.5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+}
+
+.dropdown-button:hover {
+    background-color: #5f07ac60;
+    /* Darker background on hover */
+    border-radius: 10px;
+}
+
+
+.dropdown-content {
+    display: block;
+    /* Always block to allow animation */
+    position: absolute;
+    background-color: #252525ac;
+    /* Slightly lighter dark background */
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+    max-height: 0;
+    /* Initially collapsed */
+    overflow: hidden;
+    /* Hide overflowing content */
+    opacity: 0;
+    /* Initially transparent */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    /* Smooth transition */
+}
+
+
+
+.dropdown-content.show {
+    max-height: 500px;
+    /* Adjust as needed */
+    opacity: 1;
+}
+
+.dropdown-item {
+    color: #fff;
+    /* Light text */
+    padding: 8px 8px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #5f07ac60;
+    /* Darker background on hover */
+    border-radius: 10px;
+}
+
+.fade-in {
+    animation: fadeIn 0.2s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.2s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown-container {
+    display: flex;
+    align-items: center;
+}
+
+.reset-button {
+    margin-left: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    background-color: #a4a4a420;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: rgba(188, 188, 188, 0.409);
+    line-height: 0;
+    float: right;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+.reset-button:hover {
+    background-color: #5f07ac60;
+    color: #8800ffaf;
+}
+
+
+/* Slide out to the left */
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Slide down */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.5s forwards;
+}
+
+.slide-down {
+    animation: slideDown 0.5s forwards;
+}
+
+/* ============================== */
+/* ||                          || */
+/* ||   >>> PROJECT PAGE    <<<|| */
+/* ||                          || */
+/* ============================== */
+
+
+#header {
+    user-select: none;
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Distribute space between items */
+    margin-left: 3%; /* Add padding for better appearance */
+    color: white; /* Ensure text color is white */
+}
+
+
+#project-name-text {
+    font-size: 40px; /* Adjust font size */
+    font-weight: 700; /* Adjust font weight */
+    margin-top: 20px; /* Add margin to the top */
+}
+
+#info {
+    display: flex; /* Use flexbox for alignment */
+    
+    margin-right: 3%; /* Add margin to the right for spacing */
+    margin-top: -40px; /* Add margin to the top */
+    
+}
+
+#info-text {
+    display: flex;
+    gap: 10px; /* Add some space between items */
+}
+
+.custom-dropdown-pinfo, .custom-dropdown-sinfo {
+    display: inline-block;
+    flex-direction: row; /* Align items in a row */
+    width: 100px; /* Ensure dropdowns take full width */
+}
+
+.dropdown-button-pinfo, .dropdown-button-sinfo {
+    width: 100px; /* Make buttons take full width of the container */
+}
+
+.reset-button-pinfo, .reset-button-sinfo {
+    flex: 1;
+    top: 50%;
+    display: none;
+}
+
+
+.priority-info, .status-info, .started-info, .duration-info {
+    flex: 1; /* Each text item takes equal space */
+}
+
+.custom-dropdown-pinfo, .custom-dropdown-sinfo, .started-text, .duration-text {
+    
+    margin-top: 5px; /* Add some space between text and dropdown/value */
+}
+
+/*
+This works, but kinda, it looks like shit
+so Im gonna try and redo it better
+but if I cant, ill just try and fix it
+#info-text {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px; 
+    margin-right: 3%;
+}
+
+.custom-dropdown-pinfo, .custom-dropdown-sinfo {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.dropdown-button-pinfo, .dropdown-button-sinfo {
+    width: 100px;
+    margin-top: 5px;
+}
+
+.reset-button-pinfo, .reset-button-sinfo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.priority, .status, .started, .duration {
+    grid-column: span 1;
+}
+
+.custom-dropdown-pinfo, .custom-dropdown-sinfo, .started-text, .duration-text {
+    grid-column: span 1;
+}*/
+
+
+#description {
+    font-size: 15px;
+    color: darkgray;
+    margin-left: 3%;
+    margin-top: -50px;
+}
+
+#description h2 {
+    font-weight: 500;
+}
+
+
+
+#description-box {
+    width: 94%;
+    height: calc(70vh - 340px);
+    background-color: #3333334a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 3%;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#description-box-input {
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#description-box-input {
+    flex-grow: 1;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+    overflow-y: auto;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    outline: none;
+}
+
+
+#time-worked {
+    font-size: 15px;
+    color: darkgray;
+    
+}
+
+#time-worked-text {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Distribute space between items */
+    width: 94%; /* Ensure the container takes full width */
+}
+
+#time-worked h2 {
+    margin-left: 3%;
+    font-weight: 500;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.custom-dropdown-time {
+    margin-top: 0px;
+}
+
+.dropdown-button-time {
+    position: absolute;
+    right: -3%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+
+}
+
+.reset-button-time {
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown-content-time {
+    position: absolute;
+    min-width: 100px;
+    right: -3%;
+    top: 50%;
+    margin-top: 18px;
+
+}
+
+
+
+
+#time-worked-box {
+    width: 94%;
+    height: calc(30vh - 40px);
+    background-color: #3333334a;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+
+}
+
+
+
+
+#go-to-home {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a4a4a420;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#go-to-home:hover {
+    background-color: #5f07ac60;
+}
+
+#delete-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a4a4a420;
+    color: #ff0000;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#delete-button:hover {
+    background-color: #ac070760;
+    color: white;
+}
+
