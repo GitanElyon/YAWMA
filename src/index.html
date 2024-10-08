@@ -98,46 +98,48 @@
             <div id=project-name>
                 <p id="project-name-text">Project Name</p>
             </div>
-            <!--
             <div id="info">
-                <span class="priority">Priority</span>
-                <span class="status">Status</span>
-                <span class="started">Started</span>
-                <span class="duration">Duration</span>
-            </div>
-            -->
-            <div id="info-text">
-                <div class="custom-dropdown custom-dropdown-pinfo" id="priority-dropdown">
-                    <p class="priority priority-info">Priority</p>
-                    <button class="dropdown-button dropdown-button-pinfo">Priority</button>
-                    <button class="reset-button reset-button-pinfo" data-filter="priority">x</button>
-                    <div class="dropdown-content dropdown-content-pinfo">
-                        <div class="dropdown-item" data-filter="priority" data-value="None">None</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Low">Low</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Mid">Mid</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="High">High</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Done">Done</div>
+                <div id="info-labels">
+                    <span class="priority priority-info">Priority</span>
+                    <span class="status status-info">Status</span>
+                    <span class="started started-info">Started</span>
+                    <span class="duration duration-info">Duration</span>
+                </div>
+
+                <div id="info-text">
+                    <div class="custom-dropdown custom-dropdown-pinfo" id="priority-dropdown">
+                        <!-- <p class="priority priority-info">Priority</p> -->
+                        <button class="dropdown-button dropdown-button-pinfo">Priority</button>
+                        <button class="reset-button reset-button-pinfo" data-filter="priority">x</button>
+                        <div class="dropdown-content dropdown-content-pinfo">
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Set None">None</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Low">Low</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Mid">Mid</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Set High">High</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Done">Done</div>
+                        </div>
                     </div>
-                </div>
-                <div class="custom-dropdown custom-dropdown-sinfo" id="status-dropdown">
-                    <p class="status status-info">Status</p>
-                    <button class="dropdown-button dropdown-button-sinfo">Status</button>
-                    <button class="reset-button reset-button-sinfo" data-filter="status">x</button>
-                    <div class="dropdown-content dropdown-content-sinfo">
-                        <div class="dropdown-item" data-filter="status" data-value="Not Started">Not Started</div>
-                        <div class="dropdown-item" data-filter="status" data-value="In Progress">In Progress</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Finished">Finished</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Error">Error</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Limbo">Limbo</div>
+                    <div class="custom-dropdown custom-dropdown-sinfo" id="status-dropdown">
+                        <!-- <p class="status status-info">Status</p> -->
+                        <button class="dropdown-button dropdown-button-sinfo">Status</button>
+                        <button class="reset-button reset-button-sinfo" data-filter="status">x</button>
+                        <div class="dropdown-content dropdown-content-sinfo">
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set Not Started">Not Started</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set In Progress">In Progress</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set Finished">Finished</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set Error">Error</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set Limbo">Limbo</div>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <p class="started started-info">Started</p>
-                    <p class="started-text">7/6/24</p>
-                </div>
-                <div>
-                    <p class="duration duration-info">Duration</p>
-                    <p class="duration-text">43</p>
+
+                    <div>
+                        <!-- <p class="started started-info">Started</p> -->
+                        <p class="started-text">7/6/24</p>
+                    </div>
+                    <div>
+                        <!-- <p class="duration duration-info">Duration</p> -->
+                        <p class="duration-text">43 Hours</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,7 +157,7 @@
 
         <div id="time-worked">
             <div id="time-worked-text">
-                <h2>Time Worked:</h2>
+                <h2>Time Worked: (Comming v1.0)</h2>
                 <div class="custom-dropdown custom-dropdown-time" id="status-dropdown">
                     <button class="dropdown-button dropdown-button-time" id="dropdown-button-time">Time</button>
                     <button class="reset-button reset-button-time" data-filter="time">x</button>

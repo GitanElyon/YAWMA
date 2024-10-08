@@ -520,26 +520,50 @@ body {
 }
 
 #info {
-    display: flex; /* Use flexbox for alignment */
-    
-    margin-right: 3%; /* Add margin to the right for spacing */
-    margin-top: -40px; /* Add margin to the top */
-    
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    margin-right: 4%; /* Add padding for better appearance */
+}
+
+#info-labels {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; /* Optional: Adds space between items */
 }
 
 #info-text {
-    display: flex;
-    gap: 10px; /* Add some space between items */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Align items in a row */
+    /*align-items: center; /* Align items vertically at the center */
+    gap: 30px; /* Add some space between items */
 }
 
 .custom-dropdown-pinfo, .custom-dropdown-sinfo {
-    display: inline-block;
-    flex-direction: row; /* Align items in a row */
-    width: 100px; /* Ensure dropdowns take full width */
+    /* display: inline-flex; /* Use inline-flex for proper alignment */
+    /*  align-items: center; /* Align items vertically at the center */
+    /*flex-direction: row; /* Align items in a row */
+     width: 20% !important; /* Ensure dropdowns take full width */
+}
+
+.custom-dropdown-sinfo {
+    width: 25% !important; /* Ensure dropdowns take full width */
+}
+
+.started-text {
+    margin-left: -17px;
+    padding-top: 5px;
+    font-weight: 700;
+}
+
+.duration-text {
+    margin-left: 20px;
+    padding-top: 5px;
+    font-weight: 700;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .dropdown-button-pinfo, .dropdown-button-sinfo {
-    width: 100px; /* Make buttons take full width of the container */
+     width: 100%; /* Make buttons take full width of the container */
 }
 
 .reset-button-pinfo, .reset-button-sinfo {
@@ -548,14 +572,17 @@ body {
     display: none;
 }
 
-
 .priority-info, .status-info, .started-info, .duration-info {
     flex: 1; /* Each text item takes equal space */
 }
 
 .custom-dropdown-pinfo, .custom-dropdown-sinfo, .started-text, .duration-text {
-    
     margin-top: 5px; /* Add some space between text and dropdown/value */
+}
+
+/* Additional styles for .status-info to ensure proper display */
+.custom-dropdown-sinfo {
+    margin-left: 0 !important;
 }
 
 /*
@@ -622,6 +649,10 @@ but if I cant, ill just try and fix it
     overflow-y: auto;
     padding: 10px;
     box-sizing: border-box;
+}
+
+#description-box ::-webkit-scrollbar {
+    display: none;
 }
 
 #description-box-input {
