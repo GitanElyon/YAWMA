@@ -124,8 +124,10 @@
                         <button class="dropdown-button dropdown-button-sinfo">Status</button>
                         <button class="reset-button reset-button-sinfo" data-filter="status">x</button>
                         <div class="dropdown-content dropdown-content-sinfo">
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set Not Started">Not Started</div>
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set In Progress">In Progress</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set Not Started">Not Started
+                            </div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Set In Progress">In Progress
+                            </div>
                             <div class="dropdown-item" data-filter="set-status" data-value="Set Finished">Finished</div>
                             <div class="dropdown-item" data-filter="set-status" data-value="Set Error">Error</div>
                             <div class="dropdown-item" data-filter="set-status" data-value="Set Limbo">Limbo</div>
@@ -173,16 +175,10 @@
             </div>
             <div id="time-worked-box">
                 <div id="time-worked-graph">
-                    <!-- <iframe id="time-worked-graph" src="assets/TimeWorkedGraph.html"></iframe> -->
+                    <!-- 1.0 Release stuff <iframe id="time-worked-graph" src="assets/TimeWorkedGraph.html"></iframe> -->
                 </div>
             </div>
         </div>
-        <!-- DEPRECRAITED : WORK BUTTON IS NOW UNIVERSAL
-        <div id="work-button">
-            <iframe id="work-button-background" class="work-button-class" src="assets/BackgroundButton.html"></iframe>
-            <div id="work-button-text" class="work-button-class">Work</div>
-        </div>
-        -->
         <div id="project-back-button" class="back-button">
             <button id="go-to-home" class="back-button">Back</button>
         </div>
@@ -197,39 +193,37 @@
 
     <div id="create-page" class="hidden">
         <div id="new-project-text">
-            <h1>Create New Project</h1>
+            <p id="create-new-text">Create New Project</p>
         </div>
 
         <div id="set-name">
-            <input type="text" placeholder="Project Name" maxlength="50">
+            <input id="new-project-name" type="text" placeholder="Project Name" maxlength="50" autocomplete="off">
         </div>
 
-        <div id="set-priority">
-            <h2>Priority:</h2>
-            <div id="priority-selector" class="selector">
-                <!-- I cant be fucked, ill do it later -->
+        <div id="create-sliders">
+            <div id="set-priority">
+                <h2>Priority:</h2>
+                <div id="priority-selector" class="selector">
+                    <!-- I cant be fucked, ill do it later -->
+                </div>
             </div>
-        </div>
 
-        <div id="set-status">
-            <h2>Status:</h2>
-            <div id="status-selector" class="selector">
-                <!-- again, I cant be fucked, ill do it later -->
+            <div id="set-status">
+                <h2>Status:</h2>
+                <div id="status-selector" class="selector">
+                    <!-- again, I cant be fucked, ill do it later -->
+                </div>
             </div>
         </div>
 
         <div id="set-description">
-            <h2>description:</h2>
-            <div id="enter-description">
-                <input type="text" placeholder="Project Description" maxlength="5000">
-            </div>
+            <h2>Description:</h2>
         </div>
-        <!--  DEPRECRAITED : CREATE BUTTON IS NOW UNIVERSAL
-        <div id="new-project-button" class="new-project-button-class">
-                <iframe id="create-button-background" class="create-button-class"
-                 src="assets/BackgroundButton.html"></iframe>
-            <div id="new-project-button-text" class="new-project-button-class">Create</div>
-        </div>-->
+
+        <div id="set-description-box">
+            <textarea id="set-description-box-input" type="text" placeholder="Project Description"
+                maxlength="5000"></textarea>
+        </div>
 
         <div id="project-back-button" class="back-button">
             <button id="go-to-home-from-create" class="back-button">Back</button>
@@ -237,11 +231,27 @@
 
 
         <div id="project-cancel-button" class="cancel-button">
-            <button id="cancel-button">X</button>
+            <button id="cancel-button">Cancel</button>
         </div>
 
 
 
+    </div>
+
+    <div id="settings-page" class="hidden">
+        <div id="settings-text">
+            <h1>Settings</h1>
+        </div>
+
+        <div id="settings-list">
+            <div id="settings-list-content">
+                <!-- Settings will be displayed here -->
+            </div>
+        </div>
+
+        <div id="settings-back-button" class="back-button">
+            <button id="go-to-home-from-settings" class="back-button">Back</button>
+        </div>
     </div>
 
     <!-- Create button-->
@@ -406,7 +416,7 @@
                     }
                     projects = await response.json();
                 } catch (error) {
-                    // console.warn('Failed to load projects.json, loading example_projects.json instead:', error); Pissin me off when I test
+                    console.warn('Failed to load projects.json, loading example_projects.json instead:', error);
                     let response = await fetch('assets/example_projects.json');
                     projects = await response.json();
                 }

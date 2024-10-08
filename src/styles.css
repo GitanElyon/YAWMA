@@ -585,44 +585,6 @@ body {
     margin-left: 0 !important;
 }
 
-/*
-This works, but kinda, it looks like shit
-so Im gonna try and redo it better
-but if I cant, ill just try and fix it
-#info-text {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px; 
-    margin-right: 3%;
-}
-
-.custom-dropdown-pinfo, .custom-dropdown-sinfo {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
-}
-
-.dropdown-button-pinfo, .dropdown-button-sinfo {
-    width: 100px;
-    margin-top: 5px;
-}
-
-.reset-button-pinfo, .reset-button-sinfo {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-
-.priority, .status, .started, .duration {
-    grid-column: span 1;
-}
-
-.custom-dropdown-pinfo, .custom-dropdown-sinfo, .started-text, .duration-text {
-    grid-column: span 1;
-}*/
-
 
 #description {
     font-size: 15px;
@@ -781,4 +743,135 @@ but if I cant, ill just try and fix it
     background-color: #ac070760;
     color: white;
 }
+
+/* ============================== */
+/* ||                          || */
+/* || >>> CREATE NEW PAGE <<<  || */
+/* ||                          || */
+/* ============================== */
+
+#create-new-text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 3%;
+    color: white;
+}
+
+#new-project-name {
+
+    background-color: #3333334a;
+    border: none;
+    font-size: 40px;
+    user-select: none;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    color: white;
+    font-weight: 700;
+    padding: 30px;
+    height: 50px;
+    padding-left: 10px;
+    outline: none;
+    width: 94%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+
+#create-page h2 {
+    color: darkgray;
+    margin-left: 3%;
+    font-weight: 500;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+
+#set-description-box {
+    width: 94%;
+    height: calc(70vh - 340px);
+    background-color: #3333334a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 3%;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#set-description-box ::-webkit-scrollbar {
+    display: none;
+}
+
+#set-description-box-input {
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#set-description-box-input {
+    flex-grow: 1;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+    overflow-y: auto;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    outline: none;
+}
+
+#go-to-home-from-create {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a4a4a420;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#go-to-home-from-create:hover {
+    background-color: #5f07ac60;
+}
+
+#cancel-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a4a4a420;
+    color: #ff0000;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#cancel-button:hover {
+    background-color: #ac070760;
+    color: white;
+}
+
+/* ============================== */
+/* ||                          || */
+/* ||  >>> SETTINGS PAGE <<<   || */
+/* ||                          || */
+/* ============================== */
+
 
