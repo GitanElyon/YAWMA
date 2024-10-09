@@ -29,8 +29,8 @@ I will never write CSS at 4am again.
 ***Comming Soon!***
 
 ## TODO
-1. Project info system and data collector - WIP
-2. Project creation system
+1. Project creation system - WIP
+2. Project info system and data collector
 3. Code cleanup and organization
 4. Settings Menu and app customization
 5. Changes based on user feedback!
@@ -44,5 +44,5 @@ I will never write CSS at 4am again.
 
 ## Credits
 - **Myself** (*Hi!*): Most (all) of the programming
-- **My Brother**: Did some concept art. Also big motivation
-- **My best friend**: Deconstructive Criticism (yelled incoherently at me)
+- **My Brother** [5Green-RBXScripts](https://github.com/5Green-RBXScripts): Did some concept art. Also big motivation
+- **My best friend** : Deconstructive Criticism (yelled incoherently at me)
