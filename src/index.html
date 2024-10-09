@@ -200,21 +200,51 @@
             <input id="new-project-name" type="text" placeholder="Project Name" maxlength="50" autocomplete="off">
         </div>
 
-        <div id="create-sliders">
-            <div id="set-priority">
-                <h2>Priority:</h2>
-                <div id="priority-selector" class="selector">
-                    <!-- I cant be fucked, ill do it later -->
-                </div>
-            </div>
+        <div class="container">
 
-            <div id="set-status">
-                <h2>Status:</h2>
-                <div id="status-selector" class="selector">
-                    <!-- again, I cant be fucked, ill do it later -->
+            <div class="slider">
+                <!-- Priority Section -->
+                <h2>Priority: </h2>
+                <div class="slider-group">
+                    <input type="radio" name="priority" id="none" checked>
+                    <input type="radio" name="priority" id="low">
+                    <input type="radio" name="priority" id="mid">
+                    <input type="radio" name="priority" id="high">
+                    <input type="radio" name="priority" id="done">
+
+                    <div class="labels">
+                        <label for="none">None</label>
+                        <label for="low">Low</label>
+                        <label for="mid">Mid</label>
+                        <label for="high">High</label>
+                        <label for="done">Done</label>
+                    </div>
+
+                    <div class="highlight"></div>
+                </div>
+
+                <!-- Status Section -->
+                <h2>Status: </h2>
+                <div class="slider-group">
+                    <input type="radio" name="status" id="not-started" checked>
+                    <input type="radio" name="status" id="in-progress">
+                    <input type="radio" name="status" id="error">
+                    <input type="radio" name="status" id="limbo">
+                    <input type="radio" name="status" id="finished">
+
+                    <div class="labels">
+                        <label for="not-started">Not Started</label>
+                        <label for="limbo">In Progress</label>
+                        <label for="error">Error</label>
+                        <label for="in-progress">Limbo</label>
+                        <label for="finished">Finished</label>
+                    </div>
+
+                    <div class="highlight"></div>
                 </div>
             </div>
         </div>
+
 
         <div id="set-description">
             <h2>Description:</h2>
@@ -538,10 +568,8 @@
 
             // Event listener for the back button on the create page
             document.getElementById('go-to-home-from-create').addEventListener('click', () => {
-                console.log('Back to home from create clicked');
                 createPage.classList.add('fade-out');
                 createPage.addEventListener('animationend', () => {
-                    console.log('Animated');
                     createPage.classList.add('hidden');
                     createPage.classList.remove('fade-out');
                     homePage.classList.remove('hidden');
