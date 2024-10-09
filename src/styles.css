@@ -506,6 +506,26 @@ body {
     animation: slideDown 0.5s forwards;
 }
 
+#go-to-settings {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a4a4a420;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#go-to-settings:hover {
+    background-color: #5f07ac60;
+}
+
 /* ============================== */
 /* ||                          || */
 /* ||   >>> PROJECT PAGE    <<<|| */
@@ -920,7 +940,7 @@ body {
     color: white;
 }
 
-.container {
+.slider-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -938,7 +958,7 @@ body {
     background-color: #3333334a;
     border-radius: 15px;
     margin-top: -5px;
-    
+
 }
 
 .labels {
@@ -956,6 +976,32 @@ body {
     cursor: pointer;
     color: #ddd;
     transition: color 0.3s ease;
+
+
+}
+
+
+.labels label:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    /* Adjust this for the length of the lines */
+    width: 2px;
+    /* Thickness of the lines */
+    background-color: #4f4f4f;
+    left: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.labels {
+    position: relative;
+}
+
+.labels label {
+    position: relative;
+    padding-left: 3px;
+    /* Ensure there’s room for the line */
 }
 
 input[type="radio"] {
@@ -1029,4 +1075,201 @@ input#finished:checked~.highlight {
 /* ||                          || */
 /* ============================== */
 
+#settings-text {
+    
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 3%;
+    color: white;
+    user-select: none;
+    display: flex;
+}
 
+#main-settings-text {
+    margin: 0px;
+    margin-top: 20px;
+   
+}
+
+#version-number {
+    font-size: 30px;
+    color: darkgray;
+    margin-top: 30px;
+    font-weight: 100;
+    position: absolute; /* Use absolute positioning */
+    right: 3%; /* Adjust the value as needed to position it from the right edge */
+    top: 30px; /* Adjust the value as needed to position it from the top edge */
+}
+
+#settings-page h2 {
+    color: darkgray;
+    margin-left: 3%;
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+
+#basic-settings {
+    gap: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin-left: 3%;
+    width: 94%;
+}
+
+
+
+#basic-settings-text {
+    flex-direction: row;
+    font-family: Helvetica, Arial, sans-serif;
+    color: darkgray;
+    display: flex;
+    font-size: 20px;
+}
+
+#basic-settings-input {
+    gap: 1%;
+    display: flex;
+}
+
+.basic-settings-item {
+
+    flex-direction: row;
+    background-color: #3333334a;
+    border: none;
+    font-size: 15px;
+    user-select: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    height: 35px;
+    padding-left: 10px;
+    outline: none;
+    box-sizing: border-box;
+    width: 33%;
+
+}
+
+
+
+.color-slider-container {
+    position: relative;
+    margin-left: 3%;
+}
+
+
+
+.accent-container {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width of the container */
+    margin-bottom: 20px; /* Add space below */
+}
+
+#color-value-input {
+    width: 80px; /* Keep the same width */
+    height: 30px;
+    background-color: #3333334a;
+    border: none;
+    font-size: 15px;
+    user-select: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    padding-left: 10px;
+    outline: none;
+    box-sizing: border-box;
+    margin-left: auto; /* Push the input to the far right */
+    margin-right: 3%; /* Add space to the right */
+}
+
+
+.slider-gradient {
+    height: 20px;
+    background: linear-gradient(to right, #FF0000, #FFFF00, #00FF00, #0000FF, #FF00FF, #FF0000);
+    border-radius: 15px;
+    margin-right: 3.1%;
+}
+
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: -5px;
+    /* Adjust this to position above the gradient */
+    z-index: 2;
+    background: transparent;
+    /* Make the track transparent */
+    width: 94vw;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.589);
+    cursor: pointer;
+    margin-top: 5px;
+    /* Adjust this to position above the gradient */
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: rgba(0, 0, 0, 0.687);
+}
+
+.color-value {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+
+#go-to-home-from-settings {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a4a4a420;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#go-to-home-from-settings:hover {
+    background-color: #5f07ac60;
+}
+
+#reset-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a4a4a420;
+    color: #ff0000;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#reset-button:hover {
+    background-color: #ac070760;
+    color: white;
+}

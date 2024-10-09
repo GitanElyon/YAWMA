@@ -88,6 +88,9 @@
                 </div>
             </div>
 
+            <div>
+                <button id="go-to-settings" class="settings-button">Settings</button>
+            </div>
 
         </div>
     </div>
@@ -200,7 +203,7 @@
             <input id="new-project-name" type="text" placeholder="Project Name" maxlength="50" autocomplete="off">
         </div>
 
-        <div class="container">
+        <div class="slider-container">
 
             <div class="slider">
                 <!-- Priority Section -->
@@ -270,18 +273,94 @@
 
     <div id="settings-page" class="hidden">
         <div id="settings-text">
-            <h1>Settings</h1>
+            <p id="main-settings-text">Settings</p>
+            <p id="version-number">0.3.1-alpha</p>
         </div>
 
-        <div id="settings-list">
-            <div id="settings-list-content">
-                <!-- Settings will be displayed here -->
+
+        <div id="basic-settings">
+            <div id="basic-settings-text">
+                <span>Idle Timeout</span>
+                <span>Default Directory</span>
+                <span>Setting_3</span>
+            </div>
+            <input class="switch_input" type="checkbox" role="switch" checked>
+
+            <div id="basic-settings-input">
+                <input class="basic-settings-item" type="text" placeholder="Idle Timeout" maxlength="50"
+                    autocomplete="off">
+
+                <input class="basic-settings-item" type="text" placeholder="C:\Users\$user\Projects" maxlength="200"
+                    autocomplete="off">
+
+                <input class="basic-settings-item" type="text" placeholder="Setting_3" maxlength="50"
+                    autocomplete="off">
             </div>
         </div>
 
+        <div class="accent-container">
+            <h2>Accent (v1.0)</h2>
+            <input type="text" id="color-value-input" value="#000000" autocomplete="off"/>
+        </div>
+        <div class="color-slider-container">
+            <input type="range" id="colorSlider" min="0" max="99" value="50">
+            <div class="slider-gradient"></div>
+        </div>
+
+
+        <!-- 
+        <div class="slider-container">
+
+            <div class="slider">
+                <h2>Theme: </h2>
+                <div class="slider-group">
+                    <input type="radio" name="priority" id="none" checked>
+                    <input type="radio" name="priority" id="low">
+                    <input type="radio" name="priority" id="mid">
+                    <input type="radio" name="priority" id="high">
+                    <input type="radio" name="priority" id="done">
+
+                    <div class="labels">
+                        <label for="none">None</label>
+                        <label for="low">Low</label>
+                        <label for="mid">Mid</label>
+                        <label for="high">High</label>
+                        <label for="done">Done</label>
+                    </div>
+
+                    <div class="highlight"></div>
+                </div>
+
+                <h2>Style: </h2>
+                <div class="slider-group">
+                    <input type="radio" name="status" id="not-started" checked>
+                    <input type="radio" name="status" id="in-progress">
+                    <input type="radio" name="status" id="error">
+                    <input type="radio" name="status" id="limbo">
+                    <input type="radio" name="status" id="finished">
+
+                    <div class="labels">
+                        <label for="not-started">Not Started</label>
+                        <label for="limbo">In Progress</label>
+                        <label for="error">Error</label>
+                        <label for="in-progress">Limbo</label>
+                        <label for="finished">Finished</label>
+                    </div>
+
+                    <div class="highlight"></div>
+                </div>
+            </div>
+        </div>
+-->
         <div id="settings-back-button" class="back-button">
             <button id="go-to-home-from-settings" class="back-button">Back</button>
         </div>
+
+        <div id="settings-reset-button" class="reset-button-class">
+            <button id="reset-button">Reset</button>
+        </div>
+
+
     </div>
 
     <!-- Create button-->
@@ -348,7 +427,6 @@
     </script>
 
     <!-- Dropdown Menu -->
-
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             const dropdowns = document.querySelectorAll(".custom-dropdown");
@@ -482,12 +560,12 @@
     </script>
 
     <!-- Page Changing -->
-
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
             const homePage = document.getElementById('home-page');
             const projectPage = document.getElementById('project-page');
             const createPage = document.getElementById('create-page');
+            const settingsPage = document.getElementById('settings-page');
             const createButtonText = document.getElementById('create-button-text');
 
             // Initial call to add event listeners
@@ -577,7 +655,116 @@
                     createButtonText.textContent = 'New Project';
                 }, { once: true });
             });
+
+            // Event listener for the settings button
+            document.getElementById('go-to-settings').addEventListener('click', () => {
+                homePage.classList.add('fade-out');
+                homePage.addEventListener('animationend', () => {
+                    homePage.classList.add('hidden');
+                    homePage.classList.remove('fade-out');
+                    settingsPage.classList.remove('hidden');
+                    settingsPage.classList.add('fade-in');
+                    createButtonText.textContent = 'Save';
+                }, { once: true });
+            });
+
+            // Event listener for the back button on the settings page
+            document.getElementById('go-to-home-from-settings').addEventListener('click', () => {
+                settingsPage.classList.add('fade-out');
+                settingsPage.addEventListener('animationend', () => {
+                    settingsPage.classList.add('hidden');
+                    settingsPage.classList.remove('fade-out');
+                    homePage.classList.remove('hidden');
+                    homePage.classList.add('fade-in');
+                    createButtonText.textContent = 'New Project';
+                }, { once: true });
+            });
         });
+    </script>
+
+    <!-- Accent Chaning -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('colorSlider');
+    const colorValueInput = document.getElementById('color-value-input');
+
+    const colors = ['#FF0000', '#FFFF00', '#00FF00', '#0000FF', '#FF00FF', '#FF0000'];
+
+    slider.addEventListener('input', function () {
+        const value = slider.value;
+
+        // Determine which color section the slider is in
+        const section = Math.floor(value / 20);
+        const percentInSection = (value % 20) / 20;
+
+        let color;
+
+        if (section < colors.length - 1) {
+            const startColor = hexToRgb(colors[section]);
+            const endColor = hexToRgb(colors[section + 1]);
+
+            // Interpolate the color between start and end
+            color = interpolateColor(startColor, endColor, percentInSection);
+        } else {
+            color = colors[colors.length - 1]; // Last color if at the end
+        }
+
+        const colorHex = rgbToHex(color.r, color.g, color.b);
+        colorValueInput.value = colorHex; // Update input value
+        colorValueInput.style.color = colorHex; // Update input text color
+    });
+
+    // Update slider when the input value changes
+    colorValueInput.addEventListener('input', function () {
+        const hexValue = colorValueInput.value;
+
+        // Validate hex color
+        if (/^#[0-9A-F]{6}$/i.test(hexValue)) {
+            const rgbColor = hexToRgb(hexValue);
+
+            // Find the closest color in the colors array
+            const closestColorIndex = colors.map(color => hexToRgb(color)).reduce((closestIndex, color, index) => {
+                const distance = Math.abs(rgbColor.r - color.r) + Math.abs(rgbColor.g - color.g) + Math.abs(rgbColor.b - color.b);
+                if (distance < closestIndex.distance) {
+                    return { distance, index };
+                }
+                return closestIndex;
+            }, { distance: Infinity, index: -1 }).index;
+
+            if (closestColorIndex !== -1) {
+                slider.value = closestColorIndex * 20; // Map color index to slider value
+            } else {
+                // If the color is not in the array, set it to the last position
+                slider.value = 80; // Assuming last color is the farthest
+            }
+
+            // Update input text color
+            colorValueInput.style.color = hexValue;
+        }
+    });
+
+    // Helper functions
+    function hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return { r, g, b };
+    }
+
+    function rgbToHex(r, g, b) {
+        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+    }
+
+    function interpolateColor(startColor, endColor, factor) {
+        const r = Math.round(startColor.r + factor * (endColor.r - startColor.r));
+        const g = Math.round(startColor.g + factor * (endColor.g - startColor.g));
+        const b = Math.round(startColor.b + factor * (endColor.b - startColor.b));
+        return { r, g, b };
+    }
+});
+
+
     </script>
 </body>
 
