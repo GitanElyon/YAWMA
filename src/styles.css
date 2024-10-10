@@ -1161,8 +1161,32 @@ input#finished:checked~.highlight {
     box-sizing: border-box;
 }
 
+.custom-dropdown-language {
+    margin-top: 0px;
+    display: inline-block;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 0px;
+    z-index: 3;
+    width: 32.5%;
+}
 
 
+.dropdown-button-language{
+    margin-top: 0px;
+    width: 100%;
+    background-color: #3333334a;
+}
+
+.dropdown-button-language:hover {
+    background-color: #5f07ac60;
+    border-radius: 15px;
+}
+
+.dropdown-content-language {
+    min-width: 100%;
+    border-radius: 15px;
+}
 
 .color-slider-container {
     position: relative;

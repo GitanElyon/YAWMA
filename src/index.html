@@ -277,7 +277,7 @@
             <!-- ========================== -->
             <!-- CHANGE VERSION NUMBER HERE -->
             <!-- ========================== -->
-            <p id="version-number">0.4.0-alpha</p>
+            <p id="version-number">0.4.1-alpha</p>
         </div>
 
 
@@ -297,8 +297,17 @@
                 <input class="basic-settings-item" type="text" placeholder="C:\Users\$user\Projects" maxlength="200"
                     autocomplete="off">
 
-                <input class="basic-settings-item" type="text" placeholder="Language" maxlength="50"
-                    autocomplete="off">
+                    <div class="custom-dropdown custom-dropdown-language" id="language-dropdown">
+                        <!-- <p class="priority priority-info">Priority</p> -->
+                        <button class="dropdown-button dropdown-button-language basic-settings-item">English</button>
+                        <div class="dropdown-content dropdown-content-language">
+                            <div class="dropdown-item" data-filter="set-language" data-value="Set English">English</div>
+                            <div class="dropdown-item" data-filter="set-language" data-value="Set Spanish">Spanish</div>
+                            <div class="dropdown-item" data-filter="set-language" data-value="Set Chinese">Chinese</div>
+                            <div class="dropdown-item" data-filter="set-language" data-value="Set Hindi">Hindi</div>
+                            <div class="dropdown-item" data-filter="set-language" data-value="Set Russian">Russian</div>
+                        </div>
+                    </div>
             </div>
         </div>
 
