@@ -2,22 +2,22 @@ const { getCurrentWindow } = window.__TAURI__.window;
 
 const appWindow = getCurrentWindow();
 
-window.addEventListener("DOMContentLoaded", () => {
-const minimizeButton = document.getElementById('minimize');
-const maximizeButton = document.getElementById('maximize');
-const closeButton = document.getElementById('close');
+export function initializeTitlebarButtons() {
+    const minimizeButton = document.getElementById('minimize');
+    const maximizeButton = document.getElementById('maximize');
+    const closeButton = document.getElementById('close');
 
     minimizeButton.addEventListener('click', () => {
-    appWindow.minimize();
-    
+        appWindow.minimize();
+
     });
 
     maximizeButton.addEventListener('click', () => {
-    appWindow.toggleMaximize();
-    
+        appWindow.toggleMaximize();
+
     });
 
     closeButton.addEventListener('click', () => {
-    appWindow.close();
+        appWindow.close();
     });
-});
+}
