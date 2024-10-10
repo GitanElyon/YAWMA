@@ -275,9 +275,11 @@
         <div id="settings-text">
             <p id="main-settings-text">Settings</p>
             <!-- ========================== -->
+            <!-- ========================== -->
             <!-- CHANGE VERSION NUMBER HERE -->
             <!-- ========================== -->
-            <p id="version-number">0.4.1-alpha</p>
+            <!-- ========================== -->
+            <p id="version-number">v0.4.2-alpha</p>
         </div>
 
 
@@ -297,29 +299,30 @@
                 <input class="basic-settings-item" type="text" placeholder="C:\Users\$user\Projects" maxlength="200"
                     autocomplete="off">
 
-                    <div class="custom-dropdown custom-dropdown-language" id="language-dropdown">
-                        <!-- <p class="priority priority-info">Priority</p> -->
-                        <button class="dropdown-button dropdown-button-language basic-settings-item">English</button>
-                        <div class="dropdown-content dropdown-content-language">
-                            <div class="dropdown-item" data-filter="set-language" data-value="Set English">English</div>
-                            <div class="dropdown-item" data-filter="set-language" data-value="Set Spanish">Spanish</div>
-                            <div class="dropdown-item" data-filter="set-language" data-value="Set Chinese">Chinese</div>
-                            <div class="dropdown-item" data-filter="set-language" data-value="Set Hindi">Hindi</div>
-                            <div class="dropdown-item" data-filter="set-language" data-value="Set Russian">Russian</div>
-                        </div>
+                <div class="custom-dropdown custom-dropdown-language" id="language-dropdown">
+                    <!-- <p class="priority priority-info">Priority</p> -->
+                    <button class="dropdown-button dropdown-button-language basic-settings-item">English</button>
+                    <button class="reset-button reset-button-language" data-filter="priority">x</button>
+                    <div class="dropdown-content dropdown-content-language">
+                        <div class="dropdown-item" data-filter="set-language" data-value="Set English">English</div>
+                        <div class="dropdown-item" data-filter="set-language" data-value="Set Spanish">Spanish</div>
+                        <div class="dropdown-item" data-filter="set-language" data-value="Set Chinese">Chinese</div>
+                        <div class="dropdown-item" data-filter="set-language" data-value="Set Hindi">Hindi</div>
+                        <div class="dropdown-item" data-filter="set-language" data-value="Set Russian">Russian</div>
                     </div>
+                </div>
             </div>
         </div>
 
         <div class="accent-container">
             <h2>Accent (v1.0)</h2>
-            <input type="text" id="color-value-input" value="#000000" autocomplete="off"/>
+            <input type="text" id="color-value-input" value="#000000" autocomplete="off" />
         </div>
         <div class="color-slider-container">
             <input type="range" id="colorSlider" min="0" max="99" value="50">
             <div class="slider-gradient"></div>
         </div>
-        
+
         <div class="slider-container-settings">
 
             <div class="slider-settings">
@@ -621,87 +624,88 @@
     <!-- Accent Chaning -->
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('colorSlider');
-    const colorValueInput = document.getElementById('color-value-input');
+            const slider = document.getElementById('colorSlider');
+            const colorValueInput = document.getElementById('color-value-input');
 
-    const colors = ['#FF0000', '#FFFF00', '#00FF00', '#0000FF', '#FF00FF', '#FF0000'];
+            const colors = ['#FF0000', '#FFFF00', '#00FF00', '#0000FF', '#FF00FF', '#FF0000'];
 
-    slider.addEventListener('input', function () {
-        const value = slider.value;
+            slider.addEventListener('input', function () {
+                const value = slider.value;
 
-        // Determine which color section the slider is in
-        const section = Math.floor(value / 20);
-        const percentInSection = (value % 20) / 20;
+                // Determine which color section the slider is in
+                const section = Math.floor(value / 20);
+                const percentInSection = (value % 20) / 20;
 
-        let color;
+                let color;
 
-        if (section < colors.length - 1) {
-            const startColor = hexToRgb(colors[section]);
-            const endColor = hexToRgb(colors[section + 1]);
+                if (section < colors.length - 1) {
+                    const startColor = hexToRgb(colors[section]);
+                    const endColor = hexToRgb(colors[section + 1]);
 
-            // Interpolate the color between start and end
-            color = interpolateColor(startColor, endColor, percentInSection);
-        } else {
-            color = colors[colors.length - 1]; // Last color if at the end
-        }
-
-        const colorHex = rgbToHex(color.r, color.g, color.b);
-        colorValueInput.value = colorHex; // Update input value
-        colorValueInput.style.color = colorHex; // Update input text color
-    });
-
-    // Update slider when the input value changes
-    colorValueInput.addEventListener('input', function () {
-        const hexValue = colorValueInput.value;
-
-        // Validate hex color
-        if (/^#[0-9A-F]{6}$/i.test(hexValue)) {
-            const rgbColor = hexToRgb(hexValue);
-
-            // Find the closest color in the colors array
-            const closestColorIndex = colors.map(color => hexToRgb(color)).reduce((closestIndex, color, index) => {
-                const distance = Math.abs(rgbColor.r - color.r) + Math.abs(rgbColor.g - color.g) + Math.abs(rgbColor.b - color.b);
-                if (distance < closestIndex.distance) {
-                    return { distance, index };
+                    // Interpolate the color between start and end
+                    color = interpolateColor(startColor, endColor, percentInSection);
+                } else {
+                    color = colors[colors.length - 1]; // Last color if at the end
                 }
-                return closestIndex;
-            }, { distance: Infinity, index: -1 }).index;
 
-            if (closestColorIndex !== -1) {
-                slider.value = closestColorIndex * 20; // Map color index to slider value
-            } else {
-                // If the color is not in the array, set it to the last position
-                slider.value = 80; // Assuming last color is the farthest
+                const colorHex = rgbToHex(color.r, color.g, color.b);
+                colorValueInput.value = colorHex; // Update input value
+                colorValueInput.style.color = colorHex; // Update input text color
+            });
+
+            // Update slider when the input value changes
+            colorValueInput.addEventListener('input', function () {
+                const hexValue = colorValueInput.value;
+
+                // Validate hex color
+                if (/^#[0-9A-F]{6}$/i.test(hexValue)) {
+                    const rgbColor = hexToRgb(hexValue);
+
+                    // Find the closest color in the colors array
+                    const closestColorIndex = colors.map(color => hexToRgb(color)).reduce((closestIndex, color, index) => {
+                        const distance = Math.abs(rgbColor.r - color.r) + Math.abs(rgbColor.g - color.g) + Math.abs(rgbColor.b - color.b);
+                        if (distance < closestIndex.distance) {
+                            return { distance, index };
+                        }
+                        return closestIndex;
+                    }, { distance: Infinity, index: -1 }).index;
+
+                    if (closestColorIndex !== -1) {
+                        slider.value = closestColorIndex * 20; // Map color index to slider value
+                    } else {
+                        // If the color is not in the array, set it to the last position
+                        slider.value = 80; // Assuming last color is the farthest
+                    }
+
+                    // Update input text color
+                    colorValueInput.style.color = hexValue;
+                }
+            });
+
+            // Helper functions
+            function hexToRgb(hex) {
+                const bigint = parseInt(hex.slice(1), 16);
+                const r = (bigint >> 16) & 255;
+                const g = (bigint >> 8) & 255;
+                const b = bigint & 255;
+                return { r, g, b };
             }
 
-            // Update input text color
-            colorValueInput.style.color = hexValue;
-        }
-    });
+            function rgbToHex(r, g, b) {
+                return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+            }
 
-    // Helper functions
-    function hexToRgb(hex) {
-        const bigint = parseInt(hex.slice(1), 16);
-        const r = (bigint >> 16) & 255;
-        const g = (bigint >> 8) & 255;
-        const b = bigint & 255;
-        return { r, g, b };
-    }
-
-    function rgbToHex(r, g, b) {
-        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
-    }
-
-    function interpolateColor(startColor, endColor, factor) {
-        const r = Math.round(startColor.r + factor * (endColor.r - startColor.r));
-        const g = Math.round(startColor.g + factor * (endColor.g - startColor.g));
-        const b = Math.round(startColor.b + factor * (endColor.b - startColor.b));
-        return { r, g, b };
-    }
-});
+            function interpolateColor(startColor, endColor, factor) {
+                const r = Math.round(startColor.r + factor * (endColor.r - startColor.r));
+                const g = Math.round(startColor.g + factor * (endColor.g - startColor.g));
+                const b = Math.round(startColor.b + factor * (endColor.b - startColor.b));
+                return { r, g, b };
+            }
+        });
 
 
     </script>
+    
 </body>
 
 </html>
