@@ -1083,6 +1083,7 @@ input#finished:checked~.highlight {
     color: white;
     user-select: none;
     display: flex;
+    margin-bottom: 20px;
 }
 
 #main-settings-text {
@@ -1112,45 +1113,54 @@ input#finished:checked~.highlight {
 }
 
 #basic-settings {
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-family: Helvetica, Arial, sans-serif;
     color: #fff;
     margin-left: 3%;
     width: 94%;
 }
 
-
-
-#basic-settings-text {
-    flex-direction: row;
-    font-family: Helvetica, Arial, sans-serif;
-    color: darkgray;
+#basic-settings-text, #basic-settings-input {
     display: flex;
-    font-size: 20px;
+    justify-content: space-between;
+    gap: 20px; /* Space between the columns */
+    align-items: center; /* Aligns the labels and inputs vertically in the middle */
 }
 
-#basic-settings-input {
-    gap: 1%;
-    display: flex;
+#basic-settings-text span {
+    font-size: 20px;
+    color: darkgray;
+    text-align: left;
+    flex: 1; /* Allow the labels to scale with the available space */
 }
 
 .basic-settings-item {
-
-    flex-direction: row;
     background-color: #3333334a;
     border: none;
     font-size: 15px;
-    user-select: none;
-    border-radius: 15px;
-    color: white;
     font-weight: 500;
+    color: white;
     height: 35px;
     padding-left: 10px;
+    border-radius: 15px;
     outline: none;
     box-sizing: border-box;
-    width: 33%;
-
+    flex: 1; /* Allow the input fields to scale with available space */
 }
+
+#basic-settings-input select {
+    background-color: #3333334a;
+    color: white;
+    border: none;
+    font-size: 15px;
+    border-radius: 15px;
+    height: 35px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
 
 
 
@@ -1166,7 +1176,6 @@ input#finished:checked~.highlight {
     justify-content: space-between; /* Space between items */
     align-items: center; /* Center items vertically */
     width: 100%; /* Full width of the container */
-    margin-bottom: 20px; /* Add space below */
 }
 
 #color-value-input {
@@ -1272,4 +1281,73 @@ input[type="range"]:hover::-webkit-slider-thumb {
 #reset-button:hover {
     background-color: #ac070760;
     color: white;
+}
+
+
+
+.slider-group-settings {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background-color: #44444435;
+    border-radius: 15px;
+    width: 94%;
+    margin-left: 3%;
+}
+
+.labels-settings {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.labels-settings label {
+    flex: 1;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s ease;
+    position: relative; /* Necessary for the pseudo-elements */
+    padding-left: 3px; /* Optional, space for the divider */
+}
+
+.labels-settings label:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    height: 60%; /* Divider height */
+    width: 2px;  /* Divider thickness */
+    background-color: #4f4f4f;
+    left: -1px;  /* Shift it slightly to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;  /* Above slider background, below highlight */
+}
+
+.highlight-settings {
+    position: absolute;
+    height: 100%;
+    width: 33.33%; /* Adjusted for 3 sections */
+    background-color: #4b4b4b4f; /* Adjust as needed */
+    border-radius: 15px;
+    z-index: 0;
+    transition: left 0.4s ease; /* Smooth transition */
+}
+
+input[id="dark-theme"]:checked ~ .highlight-settings,
+input[id="meta-modern-style"]:checked ~ .highlight-settings {
+    left: 0; /* First section */
+}
+
+input[id="light-theme"]:checked ~ .highlight-settings,
+input[id="simplistic-style"]:checked ~ .highlight-settings {
+    left: 33.33%; /* Second section */
+}
+
+input[id="system-theme"]:checked ~ .highlight-settings,
+input[id="transparent-style"]:checked ~ .highlight-settings {
+    left: 66.66%; /* Third section */
 }

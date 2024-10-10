@@ -274,18 +274,22 @@
     <div id="settings-page" class="hidden">
         <div id="settings-text">
             <p id="main-settings-text">Settings</p>
-            <p id="version-number">0.3.1-alpha</p>
+            <!-- ========================== -->
+            <!-- CHANGE VERSION NUMBER HERE -->
+            <!-- ========================== -->
+            <p id="version-number">0.4.0-alpha</p>
         </div>
 
 
         <div id="basic-settings">
             <div id="basic-settings-text">
-                <span>Idle Timeout</span>
-                <span>Default Directory</span>
-                <span>Setting_3</span>
+                <span id="idle-timeout-settings">Idle Timeout</span>
+                <span id="default-dir-settings">Default Directory</span>
+                <span id="language-settings">Language</span>
             </div>
+            <!-- I really don't wanna do this, but I think I will have to just to make it look good
             <input class="switch_input" type="checkbox" role="switch" checked>
-
+            -->
             <div id="basic-settings-input">
                 <input class="basic-settings-item" type="text" placeholder="Idle Timeout" maxlength="50"
                     autocomplete="off">
@@ -293,7 +297,7 @@
                 <input class="basic-settings-item" type="text" placeholder="C:\Users\$user\Projects" maxlength="200"
                     autocomplete="off">
 
-                <input class="basic-settings-item" type="text" placeholder="Setting_3" maxlength="50"
+                <input class="basic-settings-item" type="text" placeholder="Language" maxlength="50"
                     autocomplete="off">
             </div>
         </div>
@@ -306,52 +310,27 @@
             <input type="range" id="colorSlider" min="0" max="99" value="50">
             <div class="slider-gradient"></div>
         </div>
+        
+        <div class="slider-container-settings">
 
+            <div class="slider-settings">
+                <h2>Theme: (v1.1)</h2>
+                <div class="slider-group-settings">
+                    <input type="radio" name="theme" id="dark-theme" checked>
+                    <input type="radio" name="theme" id="light-theme">
+                    <input type="radio" name="theme" id="system-theme">
 
-        <!-- 
-        <div class="slider-container">
-
-            <div class="slider">
-                <h2>Theme: </h2>
-                <div class="slider-group">
-                    <input type="radio" name="priority" id="none" checked>
-                    <input type="radio" name="priority" id="low">
-                    <input type="radio" name="priority" id="mid">
-                    <input type="radio" name="priority" id="high">
-                    <input type="radio" name="priority" id="done">
-
-                    <div class="labels">
-                        <label for="none">None</label>
-                        <label for="low">Low</label>
-                        <label for="mid">Mid</label>
-                        <label for="high">High</label>
-                        <label for="done">Done</label>
+                    <div class="labels-settings">
+                        <label for="dark-theme">Dark Theme</label>
+                        <label for="light-theme">Light Theme</label>
+                        <label for="system-theme">System Theme</label>
                     </div>
 
-                    <div class="highlight"></div>
-                </div>
-
-                <h2>Style: </h2>
-                <div class="slider-group">
-                    <input type="radio" name="status" id="not-started" checked>
-                    <input type="radio" name="status" id="in-progress">
-                    <input type="radio" name="status" id="error">
-                    <input type="radio" name="status" id="limbo">
-                    <input type="radio" name="status" id="finished">
-
-                    <div class="labels">
-                        <label for="not-started">Not Started</label>
-                        <label for="limbo">In Progress</label>
-                        <label for="error">Error</label>
-                        <label for="in-progress">Limbo</label>
-                        <label for="finished">Finished</label>
-                    </div>
-
-                    <div class="highlight"></div>
+                    <div class="highlight-settings"></div>
                 </div>
             </div>
         </div>
--->
+
         <div id="settings-back-button" class="back-button">
             <button id="go-to-home-from-settings" class="back-button">Back</button>
         </div>
