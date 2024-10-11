@@ -1,0 +1,222 @@
+/* Everything For the Home page (IMCOMPLETE) */
+
+.context-bar-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+.context-labels {
+
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* Ensures it takes full width */
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+.name,
+.priority,
+.status,
+.started,
+.duration {
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(82, 82, 82);
+
+    /
+}
+
+/* Customize the distance for each category individually */
+.name {
+    margin-right: 13%;
+    /* Increased right margin for 'Name' */
+}
+
+
+
+/* Search Bar Stuff */
+
+#search-bar {
+    width: 94%;
+    height: 50px;
+    background-color: #3333334a;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin-top: 90px;
+    margin-left: 3%;
+    pointer-events: none;
+
+
+}
+
+.search-boxes-class {
+    display: flex;
+
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    /*border: 2px solid rgb(0, 0, 0);/* dont even uncomment this */
+}
+
+
+
+.search-name,
+.search-started,
+.search-duration,
+.dropdown-priority,
+.dropdown-status {
+    display: inline-block;
+    font-size: 20px;
+    /*padding: 5px;*/
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+}
+
+
+
+.search-name {
+    width: calc(31vw - 30px);
+
+}
+
+.dropdown-status {
+    margin-left: calc(19vw - 100px);
+}
+
+.search-started {
+    margin-left: calc(20vw - 150px);
+    width: 105px;
+}
+
+.search-duration {
+    margin-left: calc(20vw - 130px);
+    width: 80px;
+}
+
+/* Project List Stuff */
+
+#project-list {
+    width: 94%;
+    height: calc(100vh - 285px);
+    background-color: #3333334a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 3%;
+    overflow-y: auto;
+    /*border: 2px solid rgb(0, 0, 0); /* Adds a visible border */
+
+
+}
+
+#project-list::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+    margin-right: 10px;
+}
+
+#project-list::-webkit-scrollbar-track {
+    background: rgba(79, 79, 79, 0.3);
+    /* Gray and a little transparent */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+#project-list::-webkit-scrollbar-thumb {
+    background: rgba(86, 86, 86, 0.395);
+    /* Gray and a little transparent */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+#project-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(86, 86, 86, 0.7);
+    /* Gray and a little transparent */
+}
+
+.project-item {
+
+    border-bottom: 2px solid #ffffff2b;
+    /* Add a solid bottom border */
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    font-weight: 500;
+    transform: all 1s ease;
+
+}
+
+
+.project-item p {
+    font-size: 1.1em;
+    color: #ffffff;
+    display: inline-block;
+
+
+}
+
+.project-item {
+    position: relative;
+    /* Ensure the item is positioned relative for the overlay */
+}
+
+.project-item:hover {
+
+    background-color: #c300ff28;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.project-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /*gap: 0; /* Adjust the gap between columns as needed */
+    user-select: none;
+}
+
+.project-item :nth-child(1) {
+    grid-column: 1;
+    width: calc(31.4vw - 25px);
+    padding-left: 10px;
+}
+
+.project-item :nth-child(2) {
+    grid-column: 2;
+    width: calc(20vw - 24px);
+}
+
+.project-item :nth-child(3) {
+    grid-column: 3;
+    width: calc(20vw - 28px);
+}
+
+.project-item :nth-child(4) {
+    grid-column: 4;
+    width: calc(19vw - 10px);
+}
+
+.project-item :nth-child(5) {
+    grid-column: 5;
+}
+
+

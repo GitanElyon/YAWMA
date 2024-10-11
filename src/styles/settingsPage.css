@@ -1,0 +1,290 @@
+#settings-text {
+    
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 3%;
+    color: white;
+    user-select: none;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#main-settings-text {
+    margin: 0px;
+    margin-top: 20px;
+   
+}
+
+#version-number {
+    font-size: 30px;
+    color: darkgray;
+    margin-top: 30px;
+    font-weight: 100;
+    position: absolute; /* Use absolute positioning */
+    right: 3%; /* Adjust the value as needed to position it from the right edge */
+    top: 30px; /* Adjust the value as needed to position it from the top edge */
+}
+
+#basic-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin-left: 3%;
+    width: 94%;
+}
+
+#basic-settings-text, #basic-settings-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the columns */
+    align-items: center; /* Aligns the labels and inputs vertically in the middle */
+}
+
+#basic-settings-text span {
+    font-size: 20px;
+    color: darkgray;
+    text-align: left;
+    flex: 1; /* Allow the labels to scale with the available space */
+}
+
+.basic-settings-item {
+    background-color: #3333334a;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 15px;
+    outline: none;
+    box-sizing: border-box;
+    flex: 1; /* Allow the input fields to scale with available space */
+}
+
+#basic-settings-input select {
+    background-color: #3333334a;
+    color: white;
+    border: none;
+    font-size: 15px;
+    border-radius: 15px;
+    height: 35px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.custom-dropdown-language {
+    margin-top: 0px;
+    display: inline-block;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 0px;
+    z-index: 3;
+    width: 32.5%;
+}
+
+
+.dropdown-button-language{
+    margin-top: 0px;
+    width: 100%;
+    background-color: #3333334a;
+}
+
+.dropdown-button-language:hover {
+    background-color: #5f07ac60;
+    border-radius: 15px;
+}
+
+.dropdown-content-language {
+    min-width: 100%;
+    border-radius: 15px;
+}
+
+.color-slider-container {
+    position: relative;
+    margin-left: 3%;
+}
+
+
+
+.accent-container {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width of the container */
+}
+
+#color-value-input {
+    width: 80px; /* Keep the same width */
+    height: 30px;
+    background-color: #3333334a;
+    border: none;
+    font-size: 15px;
+    user-select: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    padding-left: 10px;
+    outline: none;
+    box-sizing: border-box;
+    margin-left: auto; /* Push the input to the far right */
+    margin-right: 3%; /* Add space to the right */
+}
+
+
+.slider-gradient {
+    height: 20px;
+    background: linear-gradient(to right, #FF0000, #FFFF00, #00FF00, #0000FF, #FF00FF, #FF0000);
+    border-radius: 15px;
+    margin-right: 3.1%;
+}
+
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: -5px;
+    /* Adjust this to position above the gradient */
+    z-index: 2;
+    background: transparent;
+    /* Make the track transparent */
+    width: 94vw;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.589);
+    cursor: pointer;
+    margin-top: 5px;
+    /* Adjust this to position above the gradient */
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: rgba(0, 0, 0, 0.687);
+}
+
+.color-value {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+
+#go-to-home-from-settings {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a4a4a420;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#go-to-home-from-settings:hover {
+    background-color: #5f07ac60;
+}
+
+#reset-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a4a4a420;
+    color: #ff0000;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+#reset-button:hover {
+    background-color: #ac070760;
+    color: white;
+}
+
+
+
+.slider-group-settings {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background-color: #44444435;
+    border-radius: 15px;
+    width: 94%;
+    margin-left: 3%;
+}
+
+.labels-settings {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.labels-settings label {
+    flex: 1;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s ease;
+    position: relative; /* Necessary for the pseudo-elements */
+    padding-left: 3px; /* Optional, space for the divider */
+}
+
+.labels-settings label:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    height: 60%; /* Divider height */
+    width: 2px;  /* Divider thickness */
+    background-color: #4f4f4f;
+    left: -1px;  /* Shift it slightly to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;  /* Above slider background, below highlight */
+}
+
+.highlight-settings {
+    position: absolute;
+    height: 100%;
+    width: 33.33%; /* Adjusted for 3 sections */
+    background-color: #4b4b4b4f; /* Adjust as needed */
+    border-radius: 15px;
+    z-index: 0;
+    transition: left 0.4s ease; /* Smooth transition */
+}
+
+input[id="dark-theme"]:checked ~ .highlight-settings,
+input[id="meta-modern-style"]:checked ~ .highlight-settings {
+    left: 0; /* First section */
+}
+
+input[id="light-theme"]:checked ~ .highlight-settings,
+input[id="simplistic-style"]:checked ~ .highlight-settings {
+    left: 33.33%; /* Second section */
+}
+
+input[id="system-theme"]:checked ~ .highlight-settings,
+input[id="transparent-style"]:checked ~ .highlight-settings {
+    left: 66.66%; /* Third section */
+}

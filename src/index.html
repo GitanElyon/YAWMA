@@ -4,7 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <title>YAWMA</title>
+
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/assets.css" />
+    <link rel="stylesheet" href="styles/homePage.css" />
+    <link rel="stylesheet" href="styles/infoPage.css" />
+    <link rel="stylesheet" href="styles/createPage.css" />
+    <link rel="stylesheet" href="styles/settingsPage.css" />
+    
+
 
 </head>
 
@@ -14,8 +22,6 @@
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: -1"></iframe>
 
     <!-- Title Bar -->
-
-
     <div data-tauri-drag-region id="titlebar" class="title-bar" draggable="false">
         <img class="title-image" src="assets/YAWMA-Main.svg" alt="Logo" />
 
@@ -50,27 +56,27 @@
 
                 <span><input type="text" placeholder="Search Project..." class="search-name" maxlength="50"></span>
 
-                <div class="custom-dropdown" id="priority-dropdown">
+                <div class="dropdown-menu" id="get-priority-dropdown">
                     <button class="dropdown-button">Priority</button>
                     <button class="reset-button" data-filter="priority">x</button>
                     <div class="dropdown-content">
-                        <div class="dropdown-item" data-filter="priority" data-value="None">None</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Low">Low</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Mid">Mid</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="High">High</div>
-                        <div class="dropdown-item" data-filter="priority" data-value="Done">Done</div>
+                        <div class="dropdown-item" data-filter="get-priority" data-value="None">None</div>
+                        <div class="dropdown-item" data-filter="get-priority" data-value="Low">Low</div>
+                        <div class="dropdown-item" data-filter="get-priority" data-value="Mid">Mid</div>
+                        <div class="dropdown-item" data-filter="get-priority" data-value="High">High</div>
+                        <div class="dropdown-item" data-filter="get-priority" data-value="Done">Done</div>
                     </div>
                 </div>
 
-                <div class="custom-dropdown" id="status-dropdown">
+                <div class="dropdown-menu" id="get-status-dropdown">
                     <button class="dropdown-button">Status</button>
                     <button class="reset-button" data-filter="status">x</button>
                     <div class="dropdown-content">
-                        <div class="dropdown-item" data-filter="status" data-value="Not Started">Not Started</div>
-                        <div class="dropdown-item" data-filter="status" data-value="In Progress">In Progress</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Finished">Finished</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Error">Error</div>
-                        <div class="dropdown-item" data-filter="status" data-value="Limbo">Limbo</div>
+                        <div class="dropdown-item" data-filter="get-status" data-value="Not Started">Not Started</div>
+                        <div class="dropdown-item" data-filter="get-status" data-value="In Progress">In Progress</div>
+                        <div class="dropdown-item" data-filter="get-status" data-value="Finished">Finished</div>
+                        <div class="dropdown-item" data-filter="get-status" data-value="Error">Error</div>
+                        <div class="dropdown-item" data-filter="get-status" data-value="Limbo">Limbo</div>
                     </div>
                 </div>
 
@@ -88,9 +94,7 @@
                 </div>
             </div>
 
-            <div>
-                <button id="go-to-settings" class="settings-button">Settings</button>
-            </div>
+            <button id="go-to-settings" class="back-button">Settings</button>
 
         </div>
     </div>
@@ -110,30 +114,28 @@
                 </div>
 
                 <div id="info-text">
-                    <div class="custom-dropdown custom-dropdown-pinfo" id="priority-dropdown">
-                        <!-- <p class="priority priority-info">Priority</p> -->
+                    <div class="dropdown-menu custom-dropdown-pinfo" id="set-priority-dropdown">
                         <button class="dropdown-button dropdown-button-pinfo">Priority</button>
                         <button class="reset-button reset-button-pinfo" data-filter="priority">x</button>
                         <div class="dropdown-content dropdown-content-pinfo">
-                            <div class="dropdown-item" data-filter="set-priority" data-value="Set None">None</div>
-                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Low">Low</div>
-                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Mid">Mid</div>
-                            <div class="dropdown-item" data-filter="set-priority" data-value="Set High">High</div>
-                            <div class="dropdown-item" data-filter="set-priority" data-value="Set Done">Done</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="None">None</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Low">Low</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Mid">Mid</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="High">High</div>
+                            <div class="dropdown-item" data-filter="set-priority" data-value="Done">Done</div>
                         </div>
                     </div>
-                    <div class="custom-dropdown custom-dropdown-sinfo" id="status-dropdown">
-                        <!-- <p class="status status-info">Status</p> -->
+                    <div class="dropdown-menu custom-dropdown-sinfo" id="set-status-dropdown">
                         <button class="dropdown-button dropdown-button-sinfo">Status</button>
                         <button class="reset-button reset-button-sinfo" data-filter="status">x</button>
                         <div class="dropdown-content dropdown-content-sinfo">
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set Not Started">Not Started
+                            <div class="dropdown-item" data-filter="set-status" data-value="Not Started">Not Started
                             </div>
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set In Progress">In Progress
+                            <div class="dropdown-item" data-filter="set-status" data-value="In Progress">In Progress
                             </div>
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set Finished">Finished</div>
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set Error">Error</div>
-                            <div class="dropdown-item" data-filter="set-status" data-value="Set Limbo">Limbo</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Finished">Finished</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Error">Error</div>
+                            <div class="dropdown-item" data-filter="set-status" data-value="Limbo">Limbo</div>
                         </div>
                     </div>
 
@@ -163,7 +165,7 @@
         <div id="time-worked">
             <div id="time-worked-text">
                 <h2>Time Worked: (Comming v1.0)</h2>
-                <div class="custom-dropdown custom-dropdown-time" id="status-dropdown">
+                <div class="dropdown-menu custom-dropdown-time" id="time-worked-dropdown">
                     <button class="dropdown-button dropdown-button-time" id="dropdown-button-time">Time</button>
                     <button class="reset-button reset-button-time" data-filter="time">x</button>
                     <div class="dropdown-content dropdown-content-time">
@@ -171,8 +173,7 @@
                         <div class="dropdown-item" data-filter="time" data-value="Week">Week</div>
                         <div class="dropdown-item" data-filter="time" data-value="Month">Month</div>
                         <div class="dropdown-item" data-filter="time" data-value="Year">Year</div>
-                        <div class="dropdown-item" data-filter="time" data-value="All Time">All Time
-                        </div>
+                        <div class="dropdown-item" data-filter="time" data-value="All Time">All Time</div>
                     </div>
                 </div>
             </div>
@@ -182,15 +183,9 @@
                 </div>
             </div>
         </div>
-        <div id="project-back-button" class="back-button">
-            <button id="go-to-home" class="back-button">Back</button>
-        </div>
 
-
-
-        <div id="project-delete-button" class="delete-button-class">
-            <button id="delete-button">Delete</button>
-        </div>
+        <button id="go-to-home" class="back-button">Back</button>
+        <button id="delete-button" class="danger-button">Delete</button>
 
     </div>
 
@@ -258,14 +253,10 @@
                 maxlength="5000"></textarea>
         </div>
 
-        <div id="project-back-button" class="back-button">
-            <button id="go-to-home-from-create" class="back-button">Back</button>
-        </div>
 
+        <button id="go-to-home-from-create" class="back-button">Back</button>
+        <button id="cancel-button" class="danger-button">Cancel</button>
 
-        <div id="project-cancel-button" class="cancel-button">
-            <button id="cancel-button">Cancel</button>
-        </div>
 
 
 
@@ -299,7 +290,7 @@
                 <input class="basic-settings-item" type="text" placeholder="C:\Users\$user\Projects" maxlength="200"
                     autocomplete="off">
 
-                <div class="custom-dropdown custom-dropdown-language" id="language-dropdown">
+                <div class="dropdown-menu custom-dropdown-language" id="language-dropdown">
                     <!-- <p class="priority priority-info">Priority</p> -->
                     <button class="dropdown-button dropdown-button-language basic-settings-item">English</button>
                     <button class="reset-button reset-button-language" data-filter="priority">x</button>
@@ -343,13 +334,10 @@
             </div>
         </div>
 
-        <div id="settings-back-button" class="back-button">
-            <button id="go-to-home-from-settings" class="back-button">Back</button>
-        </div>
 
-        <div id="settings-reset-button" class="reset-button-class">
-            <button id="reset-button">Reset</button>
-        </div>
+        <button id="go-to-home-from-settings" class="back-button">Back</button>
+        <button id="total-reset-button" class="danger-button">Reset</button>
+
 
 
     </div>
@@ -368,7 +356,7 @@
     <!-- Dropdown Menu -->
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
-            const dropdowns = document.querySelectorAll(".custom-dropdown");
+            const dropdowns = document.querySelectorAll(".dropdown-menu");
 
             let selectedStatus = null;
             let selectedPriority = null;
@@ -390,9 +378,9 @@
                         const filterType = item.dataset.filter;
                         const filterValue = item.dataset.value.toLowerCase().replace(" ", "-");
 
-                        if (filterType === "status") {
+                        if (filterType === "get-status") {
                             selectedStatus = filterValue;
-                        } else if (filterType === "priority") {
+                        } else if (filterType === "get-priority") {
                             selectedPriority = filterValue;
                         }
 
@@ -438,13 +426,16 @@
 
                     if (matchesStatus && matchesPriority) {
                         projectItem.classList.remove("hidden");
+                        console.log("Project Item Shown");
                     } else {
                         projectItem.classList.add("hidden");
+                        console.log("Project Item Hidden");
                     }
                 });
             }
         });
     </script>
+
 
     <!-- Project Loader (fetch from json)-->
     <script type="text/javascript">
@@ -705,7 +696,7 @@
 
 
     </script>
-    
+
 </body>
 
 </html>
