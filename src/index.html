@@ -353,7 +353,7 @@
 
 
     <!-- Unfinished Scripts -->
-    <!-- Dropdown Menu -->
+    <!-- Dropdown Menu Logic -->
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             const dropdowns = document.querySelectorAll(".dropdown-menu");
@@ -378,22 +378,35 @@
                         const filterType = item.dataset.filter;
                         const filterValue = item.dataset.value.toLowerCase().replace(" ", "-");
 
+
+                        // uhhhh, I know this looks like a mess, but it works, so I'm not gonna touch it for now
                         if (filterType === "get-status") {
                             selectedStatus = filterValue;
+                            filterProjectList();
                         } else if (filterType === "get-priority") {
                             selectedPriority = filterValue;
+                            filterProjectList();
+                        } else if (filterType === "set-status") {
+                            selectedStatus = filterValue;
+                            setJSONAttribute();
+                        } else if (filterType === "set-priority") {
+                            selectedPriority = filterValue;
+                            setJSONAttribute();
+                        } else if (filterType === "time") {
+                            setTimeFrame(filterValue);
+                        } else if (filterType === "set-language") {
+                            setLanguage(filterValue);
+                        } else {
+                            console.error("Unknown filter type:", filterType);
+                            // aka you fucked up, and Gitan is gonna have to fix it.
                         }
 
-                        console.log("Selected Status:", selectedStatus);
-                        console.log("Selected Priority:", selectedPriority);
-
                         // Filter project list based on selected items
-                        filterProjectList();
-
                         content.classList.remove("show");
                     });
                 });
 
+                // Reset button logic
                 resetButton.addEventListener("click", () => {
                     // Reset the button text and value
                     button.textContent = resetButton.dataset.filter.charAt(0).toUpperCase() + resetButton.dataset.filter.slice(1);
@@ -408,10 +421,38 @@
                     filterProjectList();
                 });
 
+                // Close the dropdown when clicking outside
                 window.addEventListener("click", () => {
                     content.classList.remove("show");
                 });
             });
+
+            function setLanguage(language){
+                // Uhhh, ill do it later, it cant be that hard, right?
+                // Plus, this is a feature for the future, so I don't have to worry about it now
+                // I think I will have to use a JSON file for this, but I'm not sure
+            }
+
+            function setTimeFrame(timeFrame){
+                // I am planning to make this system work using an iframe
+                // Unfortunatley I barely know how to use them, so I will have to learn that first
+            }
+
+            async function setJSONAttribute(){
+                const response = await fetch('assets/example_projects.json');
+                const projects = await response.json();
+
+                console.log(projects);
+
+                projects.forEach(project => {
+                    if (project.name === document.getElementById('project-name-text').textContent) {
+                        project.priority = selectedPriority;
+                        project.status = selectedStatus;
+
+                        console.log(project);
+                    }
+                });
+            }
 
             function filterProjectList() {
                 const projectListContent = document.querySelector("#project-list-content");
