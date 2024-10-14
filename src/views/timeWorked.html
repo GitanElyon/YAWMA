@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Purple Columns</title>
+    <style>
+        html, body {
+            margin: 0;
+            background-color: #00000000;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            border: none; /* Remove border */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap; /* No wrap for bar graph */
+            justify-content: space-around;
+            align-items: flex-end; /* Align items to the bottom */
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            padding: 10px 0px; /* Decrease padding on left and right */
+        }
+
+        .column {
+            flex: 1; /* Make columns responsive */
+            height: 100%; /* Adjust height as needed */
+            background-color: rgb(101, 0, 173);
+            border-radius: 15px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            margin: 0 10px; /* Add margin between columns */
+        }
+
+        #time-worked-graph {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+            pointer-events: none;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px; /* Add padding to the iframe */
+            box-sizing: border-box; /* Include padding in the iframe's total width and height */
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="columnsContainer" class="container">
+        <iframe id="time-worked-graph" src="your-iframe-source.html"></iframe>
+    </div>
+    <script type="text/javascript">
+        function createPurpleColumns(n) {
+            const container = document.getElementById('columnsContainer');
+            container.innerHTML = ''; // Clear any existing content
+
+            for (let i = 0; i < n; i++) {
+                const column = document.createElement('div');
+                column.className = 'column';
+                container.appendChild(column);
+            }
+        }
+
+        // Example usage: create 7 purple columns
+        createPurpleColumns(7);
+    </script>
 </body>
 </html>
