@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purple Columns</title>
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             background-color: #00000000;
             overflow: hidden;
             height: 100%;
             width: 100%;
-            border: none; /* Remove border */
+            border: none;
+            /* Remove border */
         }
 
         .container {
             display: flex;
-            flex-wrap: nowrap; /* No wrap for bar graph */
+            flex-wrap: nowrap;
             justify-content: space-around;
-            align-items: flex-end; /* Align items to the bottom */
+            align-items: flex-end;
             width: 100%;
             height: 100%;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-            padding: 10px 0px; /* Decrease padding on left and right */
+            box-sizing: border-box;
+            padding: 10px 0px;
         }
 
         .column {
-            flex: 1; /* Make columns responsive */
-            height: 100%; /* Adjust height as needed */
+            flex: 1;
+            height: 100%;
             background-color: rgb(101, 0, 173);
-            border-radius: 15px;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-            margin: 0 10px; /* Add margin between columns */
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin: 0 10px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+        }
+
+
+        .column span {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            color: white;
+            font-size: 12px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
         }
 
         #time-worked-graph {
@@ -42,17 +66,22 @@
             pointer-events: none;
             cursor: pointer;
             text-align: center;
-            padding: 10px; /* Add padding to the iframe */
-            box-sizing: border-box; /* Include padding in the iframe's total width and height */
+            padding: 10px;
+            /* Add padding to the iframe */
+            box-sizing: border-box;
+            /* Include padding in the iframe's total width and height */
         }
     </style>
 </head>
+
 <body>
     <div id="columnsContainer" class="container">
-    
+
     </div>
+
+
     <script type="text/javascript">
-        function createPurpleColumns(n) {
+        function createColumns(n) {
             const container = document.getElementById('columnsContainer');
             container.innerHTML = ''; // Clear any existing content
 
@@ -60,11 +89,39 @@
                 const column = document.createElement('div');
                 column.className = 'column';
                 container.appendChild(column);
+
+                // Create a small white text element
+                const textElement = document.createElement('span');
+                textElement.textContent = 'Column ' + (i + 1); // Display the column number
+                if (n == 7) { // time in a week
+                    days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    textElement.textContent = days[i];
+                } else if (n == 12) { // time in a year
+                    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    textElement.textContent = months[i];
+                } else if (n == 24) { // time in a day
+                    column.style.margin = '0 5px';
+                    textElement.textContent = i;
+                } else if (n == 30) { // time in an hour
+                    column.style.margin = '0 3px';
+                    textElement.textContent = i;
+                } else {
+                    // if n equals 1: do all time
+                    // write logic for later, I really cannot be bothered right now
+                }
+                textElement.id = 'columnText' + i; // Unique ID for each text element
+                column.appendChild(textElement);
+
+
             }
         }
 
-        // Example usage: create 7 purple columns
-        createPurpleColumns(7);
+        // Call the function with the desired number of columns
+        // Example usage
+        createColumns(7);
+
+        
     </script>
 </body>
+
 </html>
