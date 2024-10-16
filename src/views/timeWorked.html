@@ -31,7 +31,7 @@
         .column {
             flex: 1;
             height: 100%;
-            background-color: rgb(101, 0, 173);
+            background-color: rgba(101, 0, 173, 0.397);
             border-radius: 10px;
             box-sizing: border-box;
             margin: 0 10px;
@@ -111,16 +111,36 @@
                 }
                 textElement.id = 'columnText' + i; // Unique ID for each text element
                 column.appendChild(textElement);
-
-
             }
         }
 
         // Call the function with the desired number of columns
         // Example usage
-        createColumns(7);
+        createColumns(12);
+        getWorkedTime();
 
+        async function getWorkedTime() {
+            let projects;
+            try {
+                let response = await fetch('../assets/projects.json');
+                if (!response.ok) {
+                    throw new Error('projects.json not found');
+                }
+                projects = await response.json();
+            } catch (error) {
+                console.warn('Failed to load projects.json, loading example_projects.json instead:', error);
+                let response = await fetch('../assets/example_projects.json');
+                projects = await response.json();
+            }
         
+
+
+
+
+            
+
+
+        }
     </script>
 </body>
 
